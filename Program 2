@@ -1,0 +1,28 @@
+def is_palindrome(number):
+    num_str = str(number)
+    return num_str == num_str[::-1]
+
+def count_digit_occurrences(number):
+    num_str = str(number)
+    digit_occurrences={}
+
+    for digit in num_str:
+        digit_occurrences[digit]=digit_occurrences.get(digit,0)+1
+
+    return digit_occurrences
+
+if __name__ == "__main__":
+    try:
+        input_number=int(input("Enter a number: "))
+        if is_palindrome(input_number):
+            print(f"{input_number} is a palindrome.")
+        else:
+            print(f"{input_number} is not a palindrome.")
+
+        occurrences=count_digit_occurrences(input_number)
+        print("\n Digit occurrences: ")
+        for digit, count in occurrences.items():
+            print(f"Digit {digit}:{count} times")
+
+    except ValueError:
+        print("Invalid input. Please enter a valid integer.")
