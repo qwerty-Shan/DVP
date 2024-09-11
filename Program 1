@@ -1,0 +1,21 @@
+def calculate_average():
+    try:
+        subject1=float(input("enter the marks for subject 1:"))
+        subject2=float(input("enter the marks for subject 1:"))
+        subject3=float(input("enter the marks for subject 1:"))
+
+        Avg1=(subject1+subject2)/2
+        Avg2=(subject2+subject3)/2
+        Avg3=(subject3+subject1)/2
+
+        Best_Avg=max(Avg1,Avg2,Avg3)
+
+        print("\n Average 1=",Avg1)
+        print("\n Average 2=",Avg2)
+        print("\n Average 3=",Avg3)
+        print("\n Best Average =",Best_Avg)
+    except ValueError:
+        print("\n invalid input, enter valid numerical value")
+if __name__=="__main__":
+    calculate_average()
+    
