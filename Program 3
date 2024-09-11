@@ -15,7 +15,7 @@ if __name__=="__main__":
         n = int(input("Enter a positive integer (N>0): "))
 
 
-        if n < 0:
+        if n <= 0:
             print("Invalid input. Please enter a positive integer.")
         else:
   
