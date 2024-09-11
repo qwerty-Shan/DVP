@@ -1,0 +1,25 @@
+
+def binary_to_decimal (binary_str):
+  decimal_result = int(binary_str, 2)
+  return decimal_result
+
+def octal_to_hexadecimal(octal_str):
+  decimal_result = int(octal_str, 8)
+  hexadecimal_result = hex(decimal_result).upper()[2:]
+  return hexadecimal_result
+
+if __name__== "__main__":
+    try:
+        binary_input = input("Enter a binary number: ")
+        octal_input = input("Enter an octal number: ")
+
+
+        decimal_result = binary_to_decimal(binary_input)
+        hexadecimal_result = octal_to_hexadecimal (octal_input)
+
+
+        print(f"\nDecimal equivalent of binary {binary_input}: {decimal_result}")
+        print(f"Hexadecimal equivalent of octal {octal_input}: {hexadecimal_result}")
+
+    except ValueError as e:
+        print(f"Error:{e}")
