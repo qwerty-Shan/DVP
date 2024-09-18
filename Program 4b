@@ -1,0 +1,22 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+def draw_scatter_plot():
+    # Sample data
+    x_values = np.random.rand(50)  # 50 random x values between 0 and 1
+    y_values = np.random.rand(50)  # 50 random y values between 0 and 1
+
+    # Create a scatter plot
+    plt.scatter(x_values, y_values, color='green', marker='o', s=50)
+
+    # Add labels and title
+    plt.xlabel('X-axis')
+    plt.ylabel('Y-axis')
+    plt.title('Scatter Plot Example')
+
+    # Show the plot
+    plt.show()
+
+if __name__ == "__main__":
+    # Call the function to draw the scatter plot
+    draw_scatter_plot()
