@@ -1,0 +1,21 @@
+def analyze_sentence(sentence):
+    word_count = len(sentence.split())
+    digit_count = sum(c.isdigit() for c in sentence)
+    uppercase_count = sum(c.isupper() for c in sentence)
+    lowercase_count = sum(c.islower() for c in sentence)
+
+    return word_count, digit_count, uppercase_count, lowercase_count
+
+if __name__ == "__main__":
+    # Get input from the user
+    sentence = input("Enter a sentence: ")
+
+    # Analyze the sentence
+    word_count, digit_count, uppercase_count, lowercase_count = analyze_sentence(sentence)
+
+    # Display the results
+    print("\nAnalysis of the sentence:")
+    print(f"Number of words: {word_count}")
+    print(f"Number of digits: {digit_count}")
+    print(f"Number of uppercase letters: {uppercase_count}")
+    print(f"Number of lowercase letters: {lowercase_count}")
