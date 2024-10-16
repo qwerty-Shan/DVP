@@ -1,23 +1,19 @@
 import matplotlib.pyplot as plt
 import numpy as np
-def linear_plot():
-# Generate sample data
-x_values = np. linspace(0, 20, 20) # 100 points from 0 to 10
-y_values = 2 * x_values + 3
-# Linear equation: y = 2x + 3
-# Create a linear plot plt.plot(x_values, y _values, label='Linear Plot', color='blue'
-, linestyle='-', marker='0')
-# Add labels and title
-plt.xlabel ('X-axis')
-plt.ylabel ('Y-axis')
-plt.title( 'Linear Plot Example')
 
-# Add a legend
-plt. legend ()
-# Show the plot
-plt. show()
-if
-name
-= " main ":
-# Call the function to create the linear plot
-linear_plot()
+def draw_linear_plot():
+    xvalues = np.linspace(0,20,20)
+    yvalues = 2*xvalues + 10
+    
+    plt.plot(xvalues, yvalues, label='Linear Plot', color='cyan', linestyle='-', marker='o')
+
+
+    plt.xlabel ('X-axis')
+    plt.ylabel ('Y-axis')
+    plt.title( 'Linear Plot Example')
+
+    plt.legend()
+    plt.show()
+
+if __name__ == "__main__":
+    draw_linear_plot()
