@@ -6,8 +6,8 @@ def line_formatting_plot():
     yvalues1 = 2*xvalues + 3
     yvalues2 = 3*xvalues - 1
 
-    plt.plot(xvalues, yvalues1, label='Linear plot y=2x+2', color='blue', linestyle='-', marker='0', markersize=5)
-    plt.plot(xvalues, yvalues2, label='Linear plot y=3x-1', color='red', linestyle='-',  marker='0', markersize=5)
+    plt.plot(xvalues, yvalues1, label='Linear plot y=2x+2', color='blue', linestyle='-', marker='*', markersize=5)
+    plt.plot(xvalues, yvalues2, label='Linear plot y=3x-1', color='red', linestyle='-',  marker='*', markersize=5)
          
     plt.xlabel('X-axis')
     plt.ylabel('Y-axis')
@@ -16,5 +16,4 @@ def line_formatting_plot():
     plt.show()
 
 if __name__ =="__main__":
-
-line_formatting_plot()
+    line_formatting_plot()
