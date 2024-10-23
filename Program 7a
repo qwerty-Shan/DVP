@@ -1,0 +1,39 @@
+# Import necessary libraries
+import seaborn as sns
+import matplotlib.pyplot as plt
+import pandas as pd
+
+# Load example dataset
+tips = sns.load_dataset('tips')
+
+# Customizing the plot with Seaborn aesthetic functions
+
+# 1. Set the overall theme of the plot
+#sns.set_theme(style='whitegrid')  # You can uncomment this if you want to set a theme
+
+# 2. Change the context to control the scale of plot elements
+# (options: paper, notebook, talk, poster)
+sns.set_context('talk')  # Makes the elements bigger for presentation
+
+# 3. Create a customized color palette
+custom_palette = sns.color_palette("husl", 10)
+
+# Plotting using Seaborn aesthetics
+plt.figure(figsize=(10, 6))
+# Note: Removed size and sizes parameters from the barplot
+sns.barplot(data=tips, x='total_bill', y='tip', hue='day', palette=custom_palette)
+
+# 4. Customize labels, title, and axis limits
+plt.title('Total Bill vs. Tip by Day', fontsize=18, fontweight='bold')
+plt.xlabel('Total Bill ($)', fontsize=14)
+plt.ylabel('Tip ($)', fontsize=14)
+
+# 5. Customize the legend
+plt.legend(title='Day', loc='upper left', fontsize=12)
+
+# 6. Customize the grid and spines (borders of the plot)
+sns.despine(left=True, bottom=True)
+
+# Show the plot
+plt.tight_layout()
+plt.show()
