@@ -1,0 +1,27 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+def line_formatting_plot():
+    # Generate sample data for two lines
+    x_values = np.linspace(0, 10, 100)  # 100 points from 0 to 10
+    y1_values = 2 * x_values + 3  # Line 1 equation: y = 2x + 3
+    y2_values = 3 * x_values - 1  # Line 2 equation: y = 3x - 1
+
+    # Create the plot with line formatting
+    plt.plot(x_values, y1_values, label='Line 1 (y = 2x + 3)', color='blue', linestyle='-', linewidth=2)
+    plt.plot(x_values, y2_values, label='Line 2 (y = 3x - 1)', color='red', linestyle='--', linewidth=3)
+
+    # Add labels and title
+    plt.xlabel('X-axis')
+    plt.ylabel('Y-axis')
+    plt.title('Linear Plot with Line Formatting')
+
+    # Add a legend
+    plt.legend()
+
+    # Show the plot
+    plt.show()
+
+if __name__ == "__main__":
+    # Call the function to create the linear plot with line formatting
+    line_formatting_plot()
