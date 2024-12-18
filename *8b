@@ -1,0 +1,48 @@
+from bokeh.plotting import figure, show, gridplot
+from bokeh.models import ColumnDataSource
+from bokeh.palettes import Category10_5
+from bokeh.io import output_file
+
+def create_bokeh_plots():
+    # Sample data
+    x_values = [1, 2, 3, 4, 5]
+    y1_values = [3, 7, 1, 4, 2]
+    y2_values = [2, 4, 6, 8, 10]
+
+    # Create Bokeh figures
+    p1 = figure(title="Line Plot", x_axis_label="X-axis", y_axis_label="Y-axis")
+    p2 = figure(title="Bar Plot", x_axis_label="X-axis", y_axis_label="Y-axis")
+    p3 = figure(title="Scatter Plot", x_axis_label="X-axis", y_axis_label="Y-axis")
+    p4 = figure(title="Stacked Area Plot", x_axis_label="X-axis", y_axis_label="Y-axis", y_range=(0, 15))
+
+    # Create ColumnDataSource for the data
+    source = ColumnDataSource(data={'x': x_values, 'y1': y1_values, 'y2': y2_values})
+
+    # Line Plot
+    p1.line(x='x', y='y1', source=source, line_width=2, line_color=Category10_5[0], legend_label='Line 1')
+    p1.line(x='x', y='y2', source=source, line_width=2, line_color=Category10_5[1], legend_label='Line 2')
+
+    # Bar Plot
+    p2.vbar(x='x', top='y1', width=0.5, source=source, color=Category10_5[0], legend_label='Bar 1')
+    p2.vbar(x='x', top='y2', width=0.5, source=source, color=Category10_5[1], legend_label='Bar 2', bottom='y1')
+
+    # Scatter Plot
+    p3.scatter(x='x', y='y1', source=source, size=8, color=Category10_5[0], legend_label='Scatter 1')
+    p3.scatter(x='x', y='y2', source=source, size=8, color=Category10_5[1], legend_label='Scatter 2')
+
+    # Stacked Area Plot
+    p4.varea_stack(['y1', 'y2'], x='x', color=(Category10_5[0], Category10_5[1]), legend_label=['Area 1', 'Area 2'], source=source)
+
+    # Arrange plots into a grid
+    plots = [[p1, p2], [p3, p4]]
+    layout = gridplot(plots, sizing_mode='stretch_both')
+
+    # Save the grid of plots as an HTML file
+    output_file("bokeh_plots_8b.html")
+
+    # Show the layout of plots
+    show(layout)
+
+if __name__ == "__main__":
+    # Call the function to create the Bokeh plots
+    create_bokeh_plots()
