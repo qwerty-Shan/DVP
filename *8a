@@ -1,0 +1,33 @@
+from bokeh.plotting import figure, show
+from bokeh.models import ColumnDataSource, Legend
+from bokeh.palettes import Category10_5
+from bokeh.io import output_file
+
+def create_bokeh_line_graph():
+    # Sample data
+    x_values = [1, 2, 3, 4, 5]
+    y1_values = [3, 7, 1, 4, 2]
+    y2_values = [2, 4, 6, 8, 10]
+
+    # Create a Bokeh figure
+    p = figure(title="Bokeh Line Graph with Annotations and Legends", x_axis_label="X-axis", y_axis_label="Y-axis")
+
+    # Create ColumnDataSource for the data
+    source = ColumnDataSource(data={'x': x_values, 'y1': y1_values, 'y2': y2_values})
+
+    # Plot the lines
+    line1 = p.line(x='x', y='y1', source=source, line_width=2, line_color=Category10_5[0], legend_label='Line 1')
+    line2 = p.line(x='x', y='y2', source=source, line_width=2, line_color=Category10_5[1], legend_label='Line 2')
+
+    # Add annotations
+    p.add_layout(Legend(items=[("Line 1", [line1]), ("Line 2", [line2])], location='top_left'))
+
+    # Save the plot as an HTML file
+    output_file("bokeh_line_graph_8a.html")
+
+    # Show the plot
+    show(p)
+
+if __name__ == "__main__":
+    # Call the function to create the Bokeh line graph
+    create_bokeh_line_graph()
