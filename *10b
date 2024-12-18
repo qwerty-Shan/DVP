@@ -1,0 +1,13 @@
+import plotly.express as px
+
+# Sample data for map
+data = px.data.gapminder().query("year == 2007")
+
+# Create a world map
+world_map = px.scatter_geo(data, locations="iso_alpha", size="pop", hover_name="country", projection="natural earth")
+
+# Set map layout
+world_map.update_layout(title="World Population in 2007")
+
+# Save the map as an HTML file
+world_map.write_html("world_map_10b.html")
