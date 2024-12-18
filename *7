@@ -1,0 +1,36 @@
+import seaborn as sns
+import matplotlib.pyplot as plt
+import pandas as pd
+
+
+tips = sns.load_dataset('tips')
+
+
+
+#sns.set_theme(style='whitegrid')  # You can uncomment this if you want to set a theme
+
+
+sns.set_context('talk') 
+
+
+custom_palette = sns.color_palette("husl", 10)
+
+
+plt.figure(figsize=(10, 6))
+
+sns.barplot(data=tips, x='total_bill', y='tip', hue='day', palette=custom_palette)
+
+
+plt.title('Total Bill vs. Tip by Day', fontsize=18, fontweight='bold')
+plt.xlabel('Total Bill ($)', fontsize=14)
+plt.ylabel('Tip ($)', fontsize=14)
+
+
+plt.legend(title='Day', loc='upper left', fontsize=12)
+
+
+sns.despine(left=True, bottom=True)
+
+
+plt.tight_layout()
+plt.show()
