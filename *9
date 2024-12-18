@@ -1,0 +1,35 @@
+import plotly.graph_objects as go
+import numpy as np
+
+# Create data for 3D surface plot
+x = np.linspace(-2, 2, 100)
+y = np.linspace(-2, 2, 100)
+xx, yy = np.meshgrid(x, y)
+z = np.sin(np.sqrt(xx**2 + yy**2))
+
+# Create 3D surface plot
+surface_plot = go.Figure(data=[go.Surface(z=z, x=xx, y=yy)])
+surface_plot.update_layout(title='3D Surface Plot', scene=dict(zaxis=dict(range=[-2, 2])))
+
+# Create data for 3D scatter plot
+n_points = 100
+scatter_data = np.random.rand(n_points, 3)
+
+# Create 3D scatter plot
+scatter_plot = go.Figure(data=[go.Scatter3d(x=scatter_data[:, 0], y=scatter_data[:, 1], z=scatter_data[:, 2], mode='markers')])
+scatter_plot.update_layout(title='3D Scatter Plot', scene=dict(zaxis=dict(range=[0, 1])))
+
+# Create data for 3D line plot
+theta = np.linspace(0, 2 * np.pi, 100)
+x_line = np.cos(theta)
+y_line = np.sin(theta)
+z_line = np.linspace(0, 1, 100)
+
+# Create 3D line plot
+line_plot = go.Figure(data=[go.Scatter3d(x=x_line, y=y_line, z=z_line, mode='lines')])
+line_plot.update_layout(title='3D Line Plot', scene=dict(zaxis=dict(range=[0, 1])))
+
+# Save the plots as HTML files
+surface_plot.write_html("3d_surface_plot_9.html")
+scatter_plot.write_html("3d_scatter_plot_9.html")
+line_plot.write_html("3d_line_plot_9.html")
